@@ -20,3 +20,11 @@ Today I:
 ## Goal
 
 My goal is to become job-ready as a backend/software engineer by building real projects and sharing my progress in public.
+## Day 2
+
+## Expense Tracker
+A simple Python CLI app that lets users:
+- add expenses
+- store category and amount
+- view all expenses
+- calculate the total
