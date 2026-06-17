@@ -1,4 +1,20 @@
-expenses = []
+import json
+
+FILE_NAME = "expenses.json"
+
+try:
+    with open(FILE_NAME, "r") as file:
+        expenses = json.load(file)
+except FileNotFoundError:
+    expenses = []
+except json.JSONDecodeError:
+    expenses = []
+
+
+def save_expenses():
+    with open(FILE_NAME, "w") as file:
+        json.dump(expenses, file, indent=2)
+
 
 while True:
     print("\nExpense Tracker")
@@ -19,7 +35,8 @@ while True:
         }
 
         expenses.append(expense)
-        print("Expense added.")
+        save_expenses()
+        print("Expense added and saved.")
 
     elif choice == "2":
         if not expenses:
@@ -27,13 +44,13 @@ while True:
         else:
             print("\nAll Expenses:")
             for expense in expenses:
-                print(f"- {expense['category']}: ${expense['amount']}")
+                print(f"- {expense['category']}: ${expense['amount']:.2f}")
 
     elif choice == "3":
         total = 0
         for expense in expenses:
             total += expense["amount"]
-        print(f"Total expenses: ${total}")
+        print(f"Total expenses: ${total:.2f}")
 
     elif choice == "4":
         print("Goodbye!")
