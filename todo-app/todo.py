@@ -20,7 +20,9 @@ def show_menu():
     print("1. Add task")
     print("2. Show tasks")
     print("3. Mark task as done")
-    print("4. Exit")
+    print("4. Delete task")
+    print("5. Edit task")
+    print("6. Exit")
 
 def add_task(tasks):
     title = input("Enter your task: "). strip()
@@ -60,7 +62,53 @@ def mark_task_done(tasks):
     except ValueError:
         print("Please enter a valid number.")
 
-        
+def delete_task(tasks):
+    if not tasks:
+        print("No tasks to delete.")
+        return
+
+    show_tasks(tasks)
+
+    try:
+        number = int(input("Enter task number to delete: "))
+
+        if number < 1 or number > len(tasks):
+            print("Invalid task number.")
+            return
+
+        deleted_task = tasks[number - 1]
+        del tasks[number - 1]
+        save_tasks(tasks)
+        print(f"Deleted task: {deleted_task['title']}")
+
+    except ValueError:
+        print("Please enter a valid number.") 
+def edit_task(tasks):
+    if not tasks:
+        print("No task to edit.")
+        return
+    
+    show_tasks(tasks)
+
+    try:
+        number = int(input("Enter task number to edit: "))
+        if number < 1 or number > len(tasks):
+            print("Invalid task number.")
+            return
+
+        new_title = input("Enter new task title: ").strip()
+        if not new_title:
+            print("Task title cannot be empty.")
+            return
+
+        tasks[number - 1]["title"] = new_title
+        save_tasks(tasks)
+        print("Task updated and saved.")
+
+    except ValueError:
+        print("Please enter a valid number.")
+
+
 tasks = load_tasks()
 
 while True:
@@ -69,22 +117,20 @@ while True:
 
     if choice == "1":
         add_task(tasks)
-
-
     elif choice == "2":
         show_tasks(tasks)
-
     elif choice == "3":
         mark_task_done(tasks)
-        
     elif choice == "4":
-        print("Good bye!")
+        delete_task(tasks)
+    elif choice == "5":
+        edit_task(tasks)
+    elif choice == "6":
+        print("Goodbye!")
         break
-
     else:
         print("Invalid option.")
-    
-
+        
 
 
 
