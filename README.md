@@ -28,3 +28,33 @@ A simple Python CLI app that lets users:
 - store category and amount
 - view all expenses
 - calculate the total
+## Day 3
+
+## To-Do App
+
+Today I improved my Python CLI to-do app.
+
+### What I studied
+- functions
+- lists
+- dictionaries
+- file saving with JSON
+- exception handling
+- list indexing
+- updating and deleting data
+
+### What I built
+My to-do app can now:
+- add tasks
+- show tasks
+- mark tasks as done
+- delete tasks
+- edit tasks
+- save tasks to `tasks.json`
+- load tasks when the app starts
+
+### What I learned
+Today I learned how to organize Python code into functions, store tasks in a list of dictionaries, and save data in a JSON file. I also practiced handling user input safely with `try/except`.
+
+### Project file
+- `todo-app/todo.py`
