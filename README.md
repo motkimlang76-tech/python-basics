@@ -58,3 +58,29 @@ Today I learned how to organize Python code into functions, store tasks in a lis
 
 ### Project file
 - `todo-app/todo.py`
+  ## Day 4
+  # Contact Book
+
+A simple Python CLI contact book.
+
+## Features
+
+- Add contact
+- Show contacts
+- Search contact
+- Delete contact
+
+## What I learned
+
+- functions
+- lists
+- dictionaries
+- loops
+- user input
+- searching in a list
+- deleting from a list
+
+## How to run
+
+```bash
+python3 contact_book.py
